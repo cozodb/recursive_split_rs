@@ -1,0 +1,1 @@
+CARGO_PROFILE_RELEASE_LTO=fat CARGO_NET_GIT_FETCH_WITH_CLI=true podman run --rm -v $(pwd):/io -w /io ghcr.io/pyo3/maturin:latest build --release --strip
