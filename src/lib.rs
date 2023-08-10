@@ -27,7 +27,7 @@ impl RecursiveSplitterPy {
                     s => return Err(PyValueError::new_err(format!("Unknown tokenizer subkind: {}", s))),
                 }
             }),
-            "huggingface" => splitter::LengthFunction::HuggingFace({
+            "huggingface" | "hf" => splitter::LengthFunction::HuggingFace({
                 // if tokenizer_subkind.starts_with('/') || tokenizer_subkind.starts_with('.') || tokenizer_subkind.contains(':') {
                 tokenizers::Tokenizer::from_file(tokenizer_subkind).map_err(|e| PyValueError::new_err(format!("{}", e)))?
                 // } else {
